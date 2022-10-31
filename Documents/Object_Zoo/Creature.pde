@@ -1,47 +1,36 @@
-class Creature {
+class Creature extends Animal{
   
   color bodyColor;
   color eyeColor;
-  int size;
-  int xPos;
-  int yPos;
+ 
   
   public Creature(color bc, color ec, int size, int x, int y) {
+    super(x,y,size);
     this.bodyColor = bc;
     this.eyeColor = ec;
-    this.size = size;
-    this.xPos = x;
-    this.yPos = y;
   }
   
   public void draw() {
     fill(bodyColor);
-    ellipse(xPos + 35 * size, yPos - 4 * size, 45 * size, 45 * size);
+    ellipse(getX() + 35 * getSize(), getY() - 4 * getSize(), 45 * getSize(), 45 * getSize());
     fill(eyeColor);
-    ellipse(xPos + 35 * size, yPos - 4 * size, 10 * size, 10 * size);
+    ellipse(getX() + 35 * getSize(), getY() - 4 * getSize(), 10 * getSize(), 10 * getSize());
     fill(bodyColor);
-    ellipse(xPos + 25 * size, yPos +40 * size, 45 * size, 45 * size);
-    ellipse(xPos + 45 * size, yPos +81 * size, 45 * size, 45 * size);
-    ellipse(xPos + 50 * size, yPos +126 * size, 45 * size, 45 * size);  
+    ellipse(getX() + 25 * getSize(), getY() +40 * getSize(), 45 * getSize(), 45 * getSize());
+    ellipse(getX() + 45 * getSize(), getY() +81 * getSize(), 45 * getSize(), 45 * getSize());
+    ellipse(getX() + 50 * getSize(), getY() +126 * getSize(), 45 * getSize(), 45 * getSize());  
 }
-  
-  void move(int x, int y) {
-    this.xPos = x;
-    this.yPos = y;
-  }
   
   void bounce(int speed, int dim) {
     if (bounce == true){
-    xPos +=speed;
-    yPos += speed;
+      move(getX() + speed, getY() + speed);
     }
-  if (xPos == dim * size)
+  if (getX() == dim * getSize())
     bounce = false;
   if (bounce == false){
-    xPos -=speed;
-    yPos -= speed;
+   move(getX() - speed, getY() - speed);
   }
-  if (xPos == 0 * size)
+  if (getX() == 0 * getSize())
     bounce = true;
   }
 }
