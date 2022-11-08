@@ -19,18 +19,5 @@ class Creature extends Animal{
     ellipse(getX() + 25 * getSize(), getY() +40 * getSize(), 45 * getSize(), 45 * getSize());
     ellipse(getX() + 45 * getSize(), getY() +81 * getSize(), 45 * getSize(), 45 * getSize());
     ellipse(getX() + 50 * getSize(), getY() +126 * getSize(), 45 * getSize(), 45 * getSize());  
-}
-  
-  void bounce(int speed, int dim) {
-    if (bounce == true){
-      move(getX() + speed, getY() + speed);
-    }
-  if (getX() == dim * getSize())
-    bounce = false;
-  if (bounce == false){
-   move(getX() - speed, getY() - speed);
-  }
-  if (getX() == 0 * getSize())
-    bounce = true;
   }
 }
