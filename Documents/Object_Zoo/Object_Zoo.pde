@@ -1,6 +1,7 @@
+// Stores the animal that is going to be made
 int animalMake;
+// Stores animals in list
 ArrayList<Animal>zoo;
-int move;
 void setup() {
   size(750,750);
   Animal.setDim(750,750);
@@ -9,13 +10,16 @@ void setup() {
 }
 
 void draw() {
+  // Sets the backgroud color to white
   background(255);
+  // Draws animals and makes them walk
   for(int i=0; i < zoo.size(); i++){
     zoo.get(i).draw();
     zoo.get(i).walk();
   }
 }
 
+// When a certain key is pressed it selects an animal from the Array
 void keyPressed(){
   if (key == 'f')
     animalMake = 0;
@@ -27,6 +31,7 @@ void keyPressed(){
     animalMake = 2;
 }
 
+// When clicked adds animal to ArrayList with the location mouseX,mouseY
 void mouseClicked(){
   if (animalMake == 0)
     zoo.add(new Fish(color (#8058F2), color (#E29EE3), mouseX,mouseY,1));
