@@ -1,25 +1,34 @@
-// Stores the animal that is going to be made
+/** 
+* This class sets the size, color, and location of each animal.
+* It stores the animals in an ArrayList
+* Draws an animal based on the selected key
+*
+* @author D. Creaney
+*/
+
+/** Stores the animal that is going to be made */
 int animalMake;
-// Stores animals in list
+/** Stores animals in list */
 ArrayList<Animal>zoo;
 void setup() {
+  /** Sets the width and height of canvas */
   size(750,750);
   Animal.setDim(750,750);
-
+  /** Creates new ArrayList of animals called "zoo" */
   zoo = new ArrayList<Animal>();
 }
 
 void draw() {
-  // Sets the backgroud color to white
+  /** Sets the backgroud color to white */
   background(255);
-  // Draws animals and makes them walk
+  /** Draws animals and makes them walk */
   for(int i=0; i < zoo.size(); i++){
     zoo.get(i).draw();
     zoo.get(i).walk();
   }
 }
 
-// When a certain key is pressed it selects an animal from the Array
+/** When a certain key is pressed it selects an animal from the Array */
 void keyPressed(){
   if (key == 'f')
     animalMake = 0;
@@ -31,7 +40,7 @@ void keyPressed(){
     animalMake = 2;
 }
 
-// When clicked adds animal to ArrayList with the location mouseX,mouseY
+/** When clicked adds animal to ArrayList with the location mouseX,mouseY */
 void mouseClicked(){
   if (animalMake == 0)
     zoo.add(new Fish(color (#8058F2), color (#E29EE3), mouseX,mouseY,1));
